@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Reads and cuts from /etc/passwd
+file="/etc/passwd"
+while read l
+do
+    echo -n "$l" | cut -d":" -f 1,3,6
+done < "$file"
