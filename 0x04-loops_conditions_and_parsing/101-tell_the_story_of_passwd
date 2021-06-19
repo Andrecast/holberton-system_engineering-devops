@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Makes up a story from /etc/passwd file
+file="/etc/passwd"
+IFS=:
+while read -r user pass uid gid info home shell
+do
+    echo "The user $user is part of the $gid gang, lives in $home and rides $shell. $uid's place is protected by the passcode $pass, more info about the user here: $info"
+done < "$file"
