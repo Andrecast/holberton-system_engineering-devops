@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # This script is displaying "Holberton School" 10 times
 n=1
-until (( n >= 10 )) #another way: while [$n -ge 10] ge significa greater or iqual to, y para el incremento n=$(( n+1 ))
+until (( n>=10 )) #another way: while [$n -ge 10] ge significa greater or iqual to, y para el incremento n=$(( n+1 ))
 do
     echo "Holberton School"
     (( n++ ))
