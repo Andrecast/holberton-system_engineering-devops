@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# copy of 4-to_infinity_and_beyond and a SIGTERM signal
+trap "echo 'I am invincible!!!'" SIGTERM
+while :
+do
+    echo "To infinity and beyond"
+    sleep 2
+done
