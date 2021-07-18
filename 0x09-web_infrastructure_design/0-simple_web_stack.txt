@@ -1,0 +1,38 @@
+## You must be able to explain some specifics about this infrastructure:
+
+   -   What is a server
+Un servidor es un conjunto de computadoras capaz de atender las peticiones de un cliente y devolverle una respuesta en concordancia. Los servidores se pueden ejecutar en cualquier tipo de computadora, incluso en computadoras dedicadas a las cuales se les conoce individualmente como «el servidor»
+**El navegador hará una solicitud de HTTP a la dirección IP, El servidor en ese IP devuelve la página web para que se procese en el navegador**
+    -   What is the role of the domain name
+    Identificar una dirección IP de un servidor, pero a través de un nombre más fácil de recordar por los humanos. Su función en este caso sería traducir la IP 8.8.8.8 como www.foobar.com
+    -   What type of DNS record  `www`  is in  `www.foobar.com`
+	    Es un CNAME record, porque este se utiliza para apuntar un dominio o       subdominio a otro nombre de host, www es un subdominio. 
+ Los subdominios se utilizan para crear un equilibrio de carga en un sitio web
+    -   What is the role of the web server
+     Es un software que se encarga de entregar la información HTML de la página, cúando se le haga una solicitud HTTP
+    -   What is the role of the application server
+    Ejecutar y administrar las aplicaciones
+    -   What is the role of the database
+    Almacenar los datos de las aplicaciones o paginas web
+    -   What is the server using to communicate with the computer of the user requesting the website (¿Qué utiliza el servidor para comunicarse con la computadora del usuario que solicita el sitio web?)
+   Internet? una solicitud HTTP?
+
+
+## You must be able to explain what the issues are with this infrastructure:
+   -   SPOF
+   Single point of failure
+   es una parte de un sistema que, si falla , detendrá el funcionamiento de todo el sistema . Los SPOF son indeseables en cualquier sistema con un objetivo de alta disponibilidad o confiabilidad , ya sea una práctica comercial, una aplicación de software u otro sistema industrial.
+ Normalmente, se implementaría un equilibrador de carga para garantizar una alta disponibilidad para un clúster de servidores a nivel del sistema.
+ La redundancia a nivel del sistema se puede obtener al tener servidores de repuesto esperando para asumir el trabajo de otro servidor si falla.
+    -   Downtime when maintenance needed (like deploying new code web server needs to be restarted)
+   Para evitar esto, la infraestructura debería estar desarrollada con alta disponibilidad, en caso de que no, el cliente perderá disponibilidad hasta que el mantenimiento se haya realizado, se debe crear un plan de mantenimiento y saber cúal es el mejor momento para hacerlo (si el aplicativo no hace uso de varios horarios, paises)
+    -   Cannot scale if too much incoming traffic (No se puede escalar si hay demasiado tráfico entrante)
+  La escalabilidad supone un factor crítico en el crecimiento de un sistema. Si un sistema tiene como objetivo crecer en el numero de usuarios manteniendo su rendimiento actual, tiene que evaluar dos posibles opciones:
+
+-     Con un hardware de mayor potencia o
+-     Con una mejor combinación de hardware y software.
+
+Se pueden distinguir dos tipos de escalabilidad, vertical y horizontal:
+
+-     El escalar verticalmente o escalar hacia arriba, significa el añadir más recursos a un solo nodo en particular dentro de un sistema, tal como el añadir memoria o un disco duro más rápido a una computadora.
+-     La escalabilidad horizontal, significa agregar más nodos a un sistema, tal como añadir una computadora nueva a un programa de aplicación para espejo.
