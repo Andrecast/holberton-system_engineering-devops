@@ -1,0 +1,24 @@
+-   You must be able to explain some specifics about this infrastructure:
+    -   For every additional element, why you are adding it
+    -   What distribution algorithm your load balancer is configured with and how it works
+ Algoritmos HAProxy
+Round Robin: este algoritmo es el más comúnmente implementado. Funciona utilizando cada servidor detrás del equilibrador de carga por turnos, de acuerdo con sus pesos. También es probablemente el algoritmo más suave y justo, ya que el tiempo de procesamiento de los servidores se distribuye por igual. Como algoritmo dinámico, Round Robin permite ajustar el peso del servidor sobre la marcha.
+    -   Is your load-balancer enabling an Active-Active or Active-Passive setup, explain the difference between both
+  Es activo-activo porque con el algoritmo de Round Robin los servidores equilibran su carga por turnos, lo que quiere deecir que ambos servidores deben estar activos al mismo tiempo
+   activo -  activo:  implementan dos o más instancias de sistema activas y se pueden utilizar para mejorar la escalabilidad y proporcionar alta disponibilidad. En las implementaciones activo-activo, todas las instancias manejan las solicitudes al mismo tiempo.
+ activo - pasivo: implementan una instancia activa que maneja solicitudes y una instancia pasiva que está en espera
+    -   How a database Primary-Replica (Master-Slave) cluster works
+    permite que los datos de un servidor de base de datos MySQL (el maestro) se copien automáticamente a uno o más servidores de base de datos MySQL (los esclavos).
+  solo se utiliza la base de datos maestra para las operaciones de escritura, mientras que las operaciones de lectura pueden extenderse a múltiples bases de datos esclavas, ¿Para qué es esto? Esta arquitectura tiene el propósito de salvaguardar la confiabilidad del sitio. Si un sitio recibe mucho tráfico y la única base de datos disponible es una maestra, estará sobrecargada con solicitudes de lectura y escritura.
+    -   What is the difference between the Primary node and the Replica node in regard to the application
+  
+-   You must be able to explain what the issues are with this infrastructure:
+    -   Where are SPOF
+    -   Security issues (no firewall, no HTTPS)
+HTTPS cifra la información que circula entre la web y el usuario, para hacerla indescifrable a ojos de los hackers, Para que tu web pase a usar https necesitas conseguir un certificado SSL
+    -   No monitoring
+   you can´t know the behavior of your running software, you can´t know if your server are overload (CPU, memory, disk)
+
+
+   -   Application monitoring: getting data about your running software and making sure it is behaving as expected
+-   Server monitoring: getting data about your virtual or physical server and making sure they are not overloaded (could be CPU, memory, disk or network overload)
