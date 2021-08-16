@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 # Bash script that creates an RSA key pair
+# -b: especifica número de bits que quiero para mi contraseña, 2048 ya es bueno
+# -f: especifica el nombre del key file
+# -N: Provee la nueva frase de contraseña
 ssh-keygen -b 4096 -f holberton -N "betty"

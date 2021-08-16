@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # A Bash script that uses ssh to connect to my server using a private key
-
+#-i Selecciona un archivo desde el que se lee la clave privada para la autenticación de clave pública
 ssh ubuntu@34.138.245.164 -i ~/.ssh/holberton
