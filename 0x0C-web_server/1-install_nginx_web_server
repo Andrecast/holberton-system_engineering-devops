@@ -2,7 +2,5 @@
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install nginx
-# sudo ufw allow 'Nginx HTTP'
-# linea 7 va al archivo .html y cambia todo lo que hay por "Holberton school"
 echo "Holberton School" > /var/www/html/index.nginx-debian.html
 sudo service nginx restart
