@@ -17,5 +17,5 @@ exec {'redirec':
 #Check page info
 exec {'index':
   provider => 'shell',
-  command  => 'echo "Holberton School" > /var/www/html/index.nginx-debian.html'
+  command  => 'echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html'
 }
