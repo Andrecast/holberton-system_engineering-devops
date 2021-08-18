@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# linea 7 va al archivo .html y cambia todo lo que hay por "Holberton school"
+# Page Not Found
 sudo apt-get -y update
 sudo apt-get -y upgrade
 sudo apt-get -y install nginx
