@@ -11,11 +11,11 @@ service {'nginx':
 }
 #Check redirection to youtube page
 exec {'redirec':
-  provider => shell,
+  provider => 'shell',
   command  => 'sudo sed -i "/server_name _;/ a \\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent; " /etc/nginx/sites-available/default'
 }
 #Check page info
 exec {'index':
-  provider => shell,
+  provider => 'shell',
   command  => 'echo "Holberton School" > /var/www/html/index.nginx-debian.html'
 }
