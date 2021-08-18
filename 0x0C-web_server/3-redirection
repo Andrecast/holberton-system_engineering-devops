@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# linea 7 va al archivo .html y cambia todo lo que hay por "Holberton school"
+sudo apt-get -y update
+sudo apt-get -y upgrade
+sudo apt-get -y install nginx
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+sudo sed -i "/server_name _;/ a \\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent; " /etc/nginx/sites-available/default
+sudo service nginx restart
