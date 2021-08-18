@@ -1,4 +1,4 @@
-#Puppet manifest to install nginx
+#Puppet manifest to install nginx1
 package { 'nginx':
   ensure   => 'latest',
   name     => 'nginx',
