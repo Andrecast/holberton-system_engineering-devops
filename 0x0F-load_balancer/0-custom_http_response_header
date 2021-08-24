@@ -3,10 +3,8 @@
 # response contains a custom header
 sudo apt-get -y update
 sudo apt-get -y install nginx
-# tee: copia los datos que recibe de la entrada estándar a cero o más
-# archivos indicados por el usuario, como a su vez a la salida estándar
 sudo echo "Holberton School" | sudo tee /var/www/html/index.nginx-debian.html
-sudo sed -i "/rewrite/ a \\\n\tadd_header X-Served-By $hostname;" /etc/nginx/sites-available/default
+sudo sed -i "/rewrite/ a \\\n\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
 sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 sudo sed -i "/server_name _;/ a \\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent; " /etc/nginx/sites-available/default
 sudo sed -i "/rewrite/ a \\\n\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\tinternal;\n\t}" /etc/nginx/sites-available/default
