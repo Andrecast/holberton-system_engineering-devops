@@ -4,23 +4,8 @@ sudo apt-get -y update
 sudo apt-get -y install haproxy=1.6.\*
 sudo chmod 777 /etc/default/haproxy
 echo -e "ENABLED=1\n" >> /etc/default/haproxy
-echo "
-defaults
-        timeout connect 10s
-        timeout client 30s
-        timeout server 30s
-frontend haproxynode
-        bind *:80
-        mode http
-        default_backend backendnodes
-backend backendnodes
-        balance roundrobin
-        option forwardfor
-        server 1543-web-01 104.196.116.233:80 check
-        server 1543-web-02 54.165.130.77:80 check
-listen stats
-        bind :32700
-        stats enable
-        stats uri /" >> /etc/haproxy/haproxy.cfg
+sudo chmod 777 /etc/haproxy/haproxy.cfg
+echo -e "\nfrontend front-web\n\tbind *:80\n\tmode http\n\tdefault_backend back-web\n" >> /etc/haproxy/haproxy.cfg
+echo -e "backend back-web\n\tbalance roundrobin\n\tmode http\n\tserver 2644-web-01 35.231.62.24:80 check\n\tserver 2644-web-02 54.152.39.84:80 check\n" >> /etc/haproxy/haproxy.cfg
+sudo service haproxy restart
 
-sudo /etc/init.d/haproxy restart
